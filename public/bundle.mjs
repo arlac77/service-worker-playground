@@ -2,11 +2,16 @@ navigator.serviceWorker
   .register("service-worker.mjs")
   .then(registration => {
     document.querySelector("#status").textContent = "succeeded";
+    sayHello();
   })
   .catch(error => {
     document.querySelector("#status").textContent = error;
   });
 
-fetch("hello").then(async response => {
+export async function sayHello()
+{
+  const response = fetch("hello");
   document.querySelector("#hello").textContent = await response.text();
-});
+}
+
+
