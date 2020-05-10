@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/arlac77/service-worker-playground#readme",
   "config": {
-    "base": "/services/service-worker-playground/"
+    "base": "/services/service-worker-playground"
   },
   "pacman": {
     "groups": "web",
