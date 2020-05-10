@@ -6,3 +6,7 @@ navigator.serviceWorker
   .catch(error => {
     document.querySelector("#status").textContent = error;
   });
+
+fetch("hello").then(async response => {
+  document.querySelector("#hello").textContent = await response.text();
+});
