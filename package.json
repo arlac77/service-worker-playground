@@ -1,5 +1,77 @@
 {
-"name": "service-worker-playground",
-"description": "Example to play around with service workers",
-"main": "./index.mjs"
+  "name": "service-worker-playground",
+  "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./index.mjs",
+  "description": "Example to play around with service workers",
+  "keywords": [
+    "web"
+  ],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "mf-styling": "arlac77/mf-styling"
+  },
+  "devDependencies": {
+    "npm-pkgbuild": "^6.11.19",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "semantic-release": "^17.0.7"
+  },
+  "engines": {
+    "node": ">=14.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/service-worker-playground.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/service-worker-playground/issues"
+  },
+  "homepage": "https://github.com/arlac77/service-worker-playground#readme",
+  "config": {
+    "base": "/services/service-worker-playground/",
+    "api": "/services/service-worker-playground/api",
+    "proxyTarget": "https://somewhere/"
+  },
+  "pacman": {
+    "groups": "web",
+    "content": {
+      "${installdir}/": {
+        "base": "public"
+      },
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
+    },
+    "installdir": "/services/service-worker-playground/frontend",
+    "hooks": "pacman/hooks.sh",
+    "depends": {
+      "nginx-mainline": ">=1.17.10"
+    }
+  },
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} pkgbuild pacman makepkg"
+        }
+      ],
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator"
+    ]
+  },
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-web-app"
+    ]
+  }
 }
