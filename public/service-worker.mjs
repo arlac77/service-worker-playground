@@ -40,7 +40,7 @@ self.addEventListener("activate", event => {
 // from the network before returning it to the page.
 self.addEventListener("fetch", event => {
 
-  if(event.request.url.contains('hello')) {
+  if(event.request.url.endsWith('hello')) {
     return new Response('Hello from your friendly neighbourhood service worker!');
   }
 

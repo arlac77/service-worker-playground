@@ -10,7 +10,7 @@ navigator.serviceWorker
 
 export async function sayHello()
 {
-  const response = fetch("hello");
+  const response = await fetch("hello");
   document.querySelector("#hello").textContent = await response.text();
 }
 
