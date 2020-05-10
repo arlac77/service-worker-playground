@@ -6,11 +6,16 @@
     <title>Service Worker Example</title>
 
     <link rel="manifest" href="manifest.json" />
-    <!--<link rel="stylesheet" href="bundle.css" />-->
   </head>
 
   <body>
-    <script src="bundle.mjs" type="module"></script>
+    <script type="module">
+      import {sayHello, initialize} from 'bundle.mjs';
+
+      initialize();
+    </script>
+
+    <!--<script src="bundle.mjs" type="module"></script>-->
 
     <div id="status">
     </div>
