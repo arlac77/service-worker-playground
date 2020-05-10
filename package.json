@@ -1,0 +1,5 @@
+{
+"name": "service-worker-playground",
+"description": "Example to play around with service workers",
+"main": "./index.mjs"
+}
