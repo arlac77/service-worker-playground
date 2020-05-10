@@ -1,5 +1,3 @@
-console.log("service worker");
-
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
@@ -25,18 +23,14 @@ self.addEventListener("activate", event => {
   event.waitUntil(
     caches
       .keys()
-      .then(cacheNames => {
-        return cacheNames.filter(
-          cacheName => !currentCaches.includes(cacheName)
-        );
-      })
-      .then(cachesToDelete => {
-        return Promise.all(
-          cachesToDelete.map(cacheToDelete => {
-            return caches.delete(cacheToDelete);
-          })
-        );
-      })
+      .then(cacheNames =>
+        cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
+      )
+      .then(cachesToDelete =>
+        Promise.all(
+          cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete))
+        )
+      )
       .then(() => self.clients.claim())
   );
 });
@@ -53,14 +47,12 @@ self.addEventListener("fetch", event => {
           return cachedResponse;
         }
 
-        return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
+        return caches.open(RUNTIME).then(cache =>
+          fetch(event.request).then(response =>
             // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
-            });
-          });
-        });
+            cache.put(event.request, response.clone()).then(() => response)
+          )
+        );
       })
     );
   }
