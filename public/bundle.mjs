@@ -1,5 +1,5 @@
 navigator.serviceWorker
-  .register("service-worker.mjs", { type: "module" })
+  .register("service-worker.mjs")
   .then(registration => {
     document.querySelector("#status").textContent = "succeeded";
   })
