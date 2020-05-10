@@ -1,0 +1,11 @@
+*.css.map
+build
+.DS_Store
+node_modules
+*.log
+*.dump
+*.node
+.test
+.tmp
+*.js.map
+*.mjs.map
