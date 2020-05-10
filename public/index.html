@@ -12,6 +12,8 @@
     <script type="module">
       import {sayHello, initialize} from './bundle.mjs';
 
+      document.querySelector("#sayHello").onclick = sayHello;
+
       initialize();
     </script>
 
@@ -22,6 +24,6 @@
 
     <div id="hello">
     </div>
-    <button onclick="sayHello()">Say Hello</button>
+    <button id="sayHello">Say Hello</button>
   </body>
 </html>
