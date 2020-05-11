@@ -12,12 +12,10 @@
     <script type="module">
       import {sayHello, initialize} from './bundle.mjs';
 
-      document.querySelector("#sayHello").onclick = sayHello;
+      document.getElementById("sayHello").onclick = sayHello;
 
       initialize();
     </script>
-
-    <!--<script src="bundle.mjs" type="module"></script>-->
 
     <div id="status">
     </div>

@@ -3,16 +3,16 @@ export async function initialize() {
     const registration = await navigator.serviceWorker.register(
       "service-worker.mjs"
     );
-    document.querySelector("#status").textContent = "succeeded";
+    document.getElementById("status").textContent = "succeeded";
     sayHello();
 
     return registration;
   } catch (error) {
-    document.querySelector("#status").textContent = error;
+    document.getElementById("status").textContent = error;
   }
 }
 
 export async function sayHello() {
   const response = await fetch("hello");
-  document.querySelector("#hello").textContent = await response.text();
+  document.getElementById("hello").textContent = await response.text();
 }
