@@ -45,6 +45,8 @@ self.addEventListener("fetch", event => {
         headers: { "Content-Type": "text/html" }
       })
     );
+
+    return;
   }
 
   // Skip cross-origin requests, like those for Google Analytics.
