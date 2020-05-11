@@ -35,13 +35,18 @@ self.addEventListener("activate", event => {
   );
 });
 
+let number = 0;
+
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
 self.addEventListener("fetch", event => {
   if (event.request.url.endsWith("hello")) {
+    
+    number++;
+    
     event.respondWith(
-      new Response("Hello from your friendly neighbourhood service worker!", {
+      new Response(`Hello from your friendly neighbourhood service worker! #${number}`, {
         headers: { "Content-Type": "text/html" }
       })
     );
