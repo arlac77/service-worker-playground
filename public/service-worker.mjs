@@ -42,13 +42,15 @@ let count = 0;
 // from the network before returning it to the page.
 self.addEventListener("fetch", event => {
   if (event.request.url.endsWith("hello")) {
-    
     count++;
-    
+
     event.respondWith(
-      new Response(`Hello from your friendly neighbourhood service worker! #${count}`, {
-        headers: { "Content-Type": "text/html" }
-      })
+      new Response(
+        `Hello from your friendly neighbourhood service worker! #${count}`,
+        {
+          headers: { "Content-Type": "text/html" }
+        }
+      )
     );
 
     return;

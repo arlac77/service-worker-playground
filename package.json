@@ -4,10 +4,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./index.mjs",
   "description": "Example to play around with service workers",
   "keywords": [
-    "web"
+    "web",
+    "service-worker"
   ],
   "contributors": [
     {
@@ -17,7 +17,6 @@
   ],
   "license": "BSD-2-Clause",
   "dependencies": {
-    "mf-styling": "arlac77/mf-styling"
   },
   "devDependencies": {
     "npm-pkgbuild": "^6.11.19",
