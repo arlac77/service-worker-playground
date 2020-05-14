@@ -19,5 +19,7 @@ export async function sayHello() {
 
 export async function fetchCache() {
   const response = await fetch("cache");
-  return response.json();
+  const json = await response.json();
+  console.log(json);
+  return json;
 }

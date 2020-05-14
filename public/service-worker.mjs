@@ -9,7 +9,9 @@ const RUNTIME = "runtime";
 const PRECACHE_URLS = [
   "images/launcher-icon-2x.png",
   "images/launcher-icon-4x.png",
-  "index.html", "bundle.mjs"].map(u => '/' + u);
+  "index.html",
+  "bundle.mjs"
+].map(u => "/" + u);
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener("install", event => {
@@ -63,16 +65,13 @@ self.addEventListener("fetch", event => {
   if (event.request.url.endsWith("cache")) {
     caches.open(PRECACHE).then(cache => {
       cache.keys().then(keys => {
-      event.respondWith(
-      new Response(
-        JSON.stringify(keys),
-        {
-          headers: { "Content-Type": "application/json" }
-        }
-      )
-    );
-  });
-})
+        event.respondWith(
+          new Response(JSON.stringify([...keys]), {
+            headers: { "Content-Type": "application/json" }
+          })
+        );
+      });
+    });
 
     return;
   }
