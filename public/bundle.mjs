@@ -16,3 +16,8 @@ export async function sayHello() {
   const response = await fetch("hello");
   document.getElementById("hello").textContent = await response.text();
 }
+
+export async function fetchCache() {
+  const response = await fetch("cache");
+  return response.json();
+}

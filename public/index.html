@@ -10,16 +10,21 @@
 
   <body>
     <script type="module">
-      import {sayHello, initialize} from './bundle.mjs';
-
-      document.getElementById("sayHello").onclick = sayHello;
+      import {fetchCache, sayHello, initialize} from './bundle.mjs';
 
       initialize();
+      
+      document.getElementById("sayHello").onclick = sayHello;
+
+      fetchCache().then(cache =>
+        document.getElementById("cache").textContent = JSON.stringify(cache));
     </script>
 
     <div id="status">
     </div>
-
+    <div id="cache">
+    </div>
+    
     <div id="hello">
     </div>
     <button id="sayHello">Say Hello</button>

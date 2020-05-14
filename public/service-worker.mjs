@@ -60,6 +60,23 @@ self.addEventListener("fetch", event => {
     return;
   }
 
+  if (event.request.url.endsWith("cache")) {
+    caches.open(PRECACHE).then(cache => {
+      cache.keys().then(keys => {
+      event.respondWith(
+      new Response(
+        JSON.stringify(keys),
+        {
+          headers: { "Content-Type": "application/json" }
+        }
+      )
+    );
+  });
+})
+
+    return;
+  }
+
   // Skip cross-origin requests, like those for Google Analytics.
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
