@@ -5,11 +5,14 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "icons": [{
-    "src": "images/launcher-icon-2x.png",
-    "sizes": "96x96"
-  }, {
-    "src": "images/launcher-icon-4x.png",
-    "sizes": "192x192"
-  }]
+  "icons": [
+    {
+      "src": "images/launcher-icon-2x.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/launcher-icon-4x.png",
+      "sizes": "192x192"
+    }
+  ]
 }
