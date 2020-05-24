@@ -7,7 +7,8 @@
   "description": "Example to play around with service workers",
   "keywords": [
     "web",
-    "service-worker"
+    "service-worker",
+    "kronos-service"
   ],
   "contributors": [
     {
