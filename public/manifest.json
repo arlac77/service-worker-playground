@@ -14,5 +14,6 @@
       "src": "images/launcher-icon-4x.png",
       "sizes": "192x192"
     }
-  ]
+  ],
+  "background_color": "#ffffff"
 }
