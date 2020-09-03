@@ -21,8 +21,8 @@
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/release-notes-generator": "^9.0.1",
-    "npm-pkgbuild": "^6.12.1",
-    "semantic-release": "^17.0.8"
+    "npm-pkgbuild": "^6.12.6",
+    "semantic-release": "^17.1.1"
   },
   "engines": {
     "node": ">=14.2.0"
@@ -49,7 +49,7 @@
     "installdir": "/services/service-worker-playground/frontend",
     "hooks": "pacman/hooks.sh",
     "depends": {
-      "nginx-mainline": ">=1.17.10"
+      "nginx-mainline": ">=1.19.2"
     }
   },
   "release": {
