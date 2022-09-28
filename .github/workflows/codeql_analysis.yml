@@ -21,7 +21,7 @@ jobs:
           languages: javascript
       - uses: actions/setup-node@v3.5.0
         with:
-          node-version: 14.18.9.0
+          node-version: 14.18.9.1
       - run: npm ci
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
