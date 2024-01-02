@@ -5,5 +5,7 @@ node_modules
 *.dump
 *.node
 .test
+dist
 .tmp
+/node_modules/**
 *.map
