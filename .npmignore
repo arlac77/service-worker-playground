@@ -8,3 +8,6 @@ doc
 .vscode
 *.map
 .github
+.stylelintrc.json
+pkg
+dist
