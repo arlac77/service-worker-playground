@@ -17,19 +17,25 @@
     }
   ],
   "license": "BSD-2-Clause",
+  "scripts": {
+    "lint": "npm run lint:css",
+    "lint:css": "stylelint ./src/*.css"
+  },
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "^11.0.0",
-    "@semantic-release/exec": "^6.0.1",
-    "@semantic-release/release-notes-generator": "^12.0.0",
-    "npm-pkgbuild": "^13.0.1",
-    "semantic-release": "^22.0.0"
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "npm-pkgbuild": "^13.0.9",
+    "semantic-release": "^22.0.12",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0"
   },
   "engines": {
     "node": ">=14.15.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/service-worker-playground.git"
+    "url": "https://github.com/arlac77/service-worker-playground"
   },
   "bugs": {
     "url": "https://github.com/arlac77/service-worker-playground/issues"
@@ -37,6 +43,69 @@
   "homepage": "https://github.com/arlac77/service-worker-playground#readme",
   "config": {
     "base": "/services/service-worker-playground"
+  },
+  "pkgbuild": {
+    "content": {}
+  },
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} pkgbuild pacman makepkg --publish dist"
+        }
+      ],
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npx npm-pkgbuild --available --continue --publish dist"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "dist/*.deb",
+              "label": "any Debian Package"
+            },
+            {
+              "path": "dist/*any.pkg.*",
+              "label": "any Arch Linux Package"
+            },
+            {
+              "path": "dist/*x86_64.pkg.*",
+              "label": "x86_64 Arch Linux Package"
+            },
+            {
+              "path": "dist/*aarch64.pkg.*",
+              "label": "arm64 Arch Linux Package"
+            },
+            {
+              "path": "dist/*noarch.rpm",
+              "label": "noarch RPM"
+            },
+            {
+              "path": "dist/*x86_64.rpm",
+              "label": "x86_64 RPM"
+            },
+            {
+              "path": "dist/*aarch64.rpm",
+              "label": "arm64 RPM"
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-web-app"
+    ]
   },
   "pacman": {
     "groups": "web",
@@ -51,23 +120,5 @@
     "depends": {
       "nginx-mainline": ">=1.19.3"
     }
-  },
-  "release": {
-    "plugins": [
-      [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} pkgbuild pacman makepkg --publish dist"
-        }
-      ],
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator"
-    ]
-  },
-  "template": {
-    "inheritFrom": [
-      "arlac77/template-arlac77-github",
-      "arlac77/template-web-app"
-    ]
   }
 }
