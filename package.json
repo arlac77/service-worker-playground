@@ -2,7 +2,8 @@
   "name": "service-worker-playground",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "description": "Example to play around with service workers",
   "keywords": [
