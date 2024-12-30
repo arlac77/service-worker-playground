@@ -20,7 +20,7 @@
   "license": "0BSD",
   "scripts": {
     "lint": "node --run lint:css",
-    "lint:css": "stylelint ./src/*.css"
+    "lint:css": "stylelint ./src**/*.css"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^13.0.0",
