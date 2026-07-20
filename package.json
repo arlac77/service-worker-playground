@@ -30,7 +30,7 @@
     "@semantic-release/release-notes-generator": "^14.1.1",
     "npm-pkgbuild": "^20.8.2",
     "semantic-release": "^25.0.8",
-    "stylelint": "^17.14.0",
+    "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0"
   },
   "engines": {
